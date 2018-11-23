@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Jonny Watchables</title>
+    </head>
+
+    <body onload="init()">
+
+        <script src="./jonnyWatchable.js"></script>
+
+        <script>
+            function init() {
+                let watchable = new JonnyCode.Watchable(0);
+
+                // Add Handler1
+                watchable.addHandler(handler1);
+                // Handler1 log = 1
+                watchable.value += 1;
+
+                // Add Handler2
+                watchable.addHandler(handler2);
+                // Handler1 log = 2 
+                // Handler2 log = 2 
+                watchable.value += 1;
+
+                // Remove Handler1
+                watchable.removeHandler(handler1);
+                // Handler2 log = 3 
+                watchable.value += 1;
+            }
+
+            function handler1(value) {
+                console.log("handler1:", value);
+            }
+
+            function handler2(value) {
+                console.log("handler2:", value);
+            }
+        </script>
+    </body>
+</html>
